@@ -11,12 +11,16 @@ export class TaskItemComponent implements OnInit {
   @Input() task!: Task
   faTimes = faTimes
   @Output() onDeleteTask:EventEmitter<Task> = new EventEmitter()
+  @Output() onToggle:EventEmitter<Task>= new EventEmitter()
   constructor() { }
 
   ngOnInit(): void {
   }
   deleteTask(task:Task){
     this.onDeleteTask.emit(task)
+  }
+  onToggleReminder(task:Task){
+    this.onToggle.emit(task)
   }
 
 }
