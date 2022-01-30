@@ -14,4 +14,7 @@ private apiUrl = "http://localhost:5000/tasks"
   getTasks(): Observable<Task[]>{
    return this.http.get<Task[]>(this.apiUrl)
   }
+  deleteTask(id:any): Observable<Task[]>{
+    return this.http.delete<Task[]>(`${this.apiUrl}/${id}`)
+   }
 }
