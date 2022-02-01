@@ -26,8 +26,11 @@ private apiUrl = "http://localhost:5000/tasks"
   deleteTask(id:any): Observable<Task[]>{
     return this.http.delete<Task[]>(`${this.apiUrl}/${id}`)
    }
-   updateReminder(task:Task): Observable<Task[]>{
-     let id = task.id 
-     return this.http.put<Task[]>(`${this.apiUrl}/${id}`, task, httpOptions)
-   }
+  updateReminder(task:Task): Observable<Task[]>{
+    let id = task.id 
+    return this.http.put<Task[]>(`${this.apiUrl}/${id}`, task, httpOptions)
+  }
+  addTask(task:Task): Observable<Task>{
+    return this.http.post<Task>(`${this.apiUrl}`, task, httpOptions)
+  }
 }
